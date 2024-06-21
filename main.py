@@ -1,10 +1,11 @@
 from task import task
 from classes import ConsoleUserInterface
-    
+
+
 def main():
     user_interface = ConsoleUserInterface()
     task.run(user_interface)
-    
+
 
 if __name__ == "__main__":
     main()

@@ -1,8 +1,7 @@
-storage
-
 # Trash files
 *.png
 .idea
+README.md
 
 # Serialized book
 *.pkl
