@@ -1,20 +1,7 @@
 from utils import normalize_phone, input_error, save_data, load_data
-import json
-from classes import AddressBook, Record, Phone, Birthday, Name, ConsoleUserInterface, UserInteractionInterface
+from classes import AddressBook, Record
+from UI import UserInputOutputInterface
 from colorama import Fore
-
-"""
-    Можливо він хоче, аби тут був абстрактний клас тіпа команда
-    а потім шоб в мейні ми виконували тільки команду, без знання її реалізації\
-    Ааа, він хоче аби я написав інтерфейс для виводу в консоль, а потім реалізував тіпа
-    InterfacePrintToConsole <- PrintCommands(InterfacePrintToConsole), PrintContacts(InterfacePrintToConsole)
-    
-    A generic inteface that works like Logger. You type myLogger.informUser() and pass in 
-    the message you want to inform your user with
-"""
-
-
-
 
 
 def parse_name_and_last_param(args, num_of_params: int | None = None) -> tuple:
@@ -127,7 +114,7 @@ def handle_wrong_input():
 
 
 @input_error  # Is nescessary here, because it handles ^C(KeyboardInterruption) exit
-def run(user_interface: UserInteractionInterface):
+def run(user_interface: UserInputOutputInterface):
 
     commands = {
         "hello": "The greeting",
@@ -148,8 +135,6 @@ def run(user_interface: UserInteractionInterface):
 
     while True:
         try:
-            # user_input = input("\nEnter a command: ")
-            # command, *args = parse_input(user_input)
             command, *args = user_interface.user_input()
         except KeyboardInterrupt:
             print("Bye-bye!")
@@ -167,7 +152,6 @@ def run(user_interface: UserInteractionInterface):
         elif command == "phone":
             user_interface.show_message(show_phone(args, book))
         elif command == "all":
-            user_interface.show_message("Your contacts are:")
             user_interface.show_contacts(book)
         elif command == "add-birthday":
             user_interface.show_message(add_birthday(args, book))

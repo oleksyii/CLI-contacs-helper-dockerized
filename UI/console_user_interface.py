@@ -1,10 +1,10 @@
 from classes.classes import AddressBook
-from .user_interaction_interface import UserInteractionInterface
+from .user_interaction_interface import UserInputOutputInterface
 from colorama import Fore
-from .inputs_parsing import parse_input
+from classes import parse_input
 from typing import Tuple
 
-class ConsoleUserInterface(UserInteractionInterface):
+class ConsoleUserInterface(UserInputOutputInterface):
     
     def show_message(self, message: str):
         print(message)

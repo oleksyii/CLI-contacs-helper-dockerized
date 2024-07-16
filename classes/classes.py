@@ -215,7 +215,7 @@ class AddressBook(UserDict):
         for user in self.data.values():
 
             # Skipping the iteration, if birthday for a user is not specified
-            # (I wish there was a better way doing it, than that)
+            # (I wish there was a better way of doing it, than that)
             if user.birthday is None:
                 continue
             birthday_this_year = user.birthday.value.replace(year=today.year)

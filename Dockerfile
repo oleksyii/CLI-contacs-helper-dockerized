@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.10-alpine
 
 # Встановимо змінну середовища
 ENV APP_HOME /app
@@ -7,6 +7,8 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 
 COPY . .
+
+RUN apk add --no-cache bash
 
 RUN pip3 install poetry
 

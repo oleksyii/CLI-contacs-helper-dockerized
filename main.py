@@ -1,5 +1,5 @@
 from task import task
-from classes import ConsoleUserInterface
+from UI import ConsoleUserInterface
 
 
 def main():
