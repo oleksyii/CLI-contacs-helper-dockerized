@@ -8,10 +8,16 @@ WORKDIR $APP_HOME
 
 COPY . .
 
-RUN apk add --no-cache bash
+RUN apk update && apk add bash
 
-RUN pip3 install poetry
+# To run w/ poetry
+# RUN pip3 install poetry
 
-RUN poetry install
+# RUN poetry install
 
-CMD ["poetry", "run", "python3", "main.py"]
+# To run w/ requirements.txt
+RUN pip3 install -r requirements.txt
+
+# CMD ["poetry", "run", "python3", "main.py"]
+# RUN ["python3", "main.py"]
+CMD ["python3", "main.py"]
